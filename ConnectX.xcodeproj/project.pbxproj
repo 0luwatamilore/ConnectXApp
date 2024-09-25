@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F498BBA2CA473680007FEF3 /* ConnectXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BB92CA473680007FEF3 /* ConnectXApp.swift */; };
-		3F498BBC2CA473680007FEF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BBB2CA473680007FEF3 /* ContentView.swift */; };
 		3F498BBE2CA4736A0007FEF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F498BBD2CA4736A0007FEF3 /* Assets.xcassets */; };
 		3F498BC12CA4736A0007FEF3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F498BC02CA4736A0007FEF3 /* Preview Assets.xcassets */; };
+		3F498BCB2CA475FD0007FEF3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BCA2CA475FD0007FEF3 /* ProfileView.swift */; };
+		3F498BCD2CA476560007FEF3 /* ConnectXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BCC2CA476560007FEF3 /* ConnectXApp.swift */; };
+		3F498BCF2CA476D40007FEF3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BCE2CA476D40007FEF3 /* MainView.swift */; };
+		3F498BD12CA4781D0007FEF3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BD02CA4781D0007FEF3 /* LoginView.swift */; };
+		3F498BD32CA478320007FEF3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BD22CA478320007FEF3 /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F498BB62CA473680007FEF3 /* ConnectX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectX.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F498BB92CA473680007FEF3 /* ConnectXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectXApp.swift; sourceTree = "<group>"; };
-		3F498BBB2CA473680007FEF3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3F498BBD2CA4736A0007FEF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F498BC02CA4736A0007FEF3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3F498BCA2CA475FD0007FEF3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		3F498BCC2CA476560007FEF3 /* ConnectXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectXApp.swift; sourceTree = SOURCE_ROOT; };
+		3F498BCE2CA476D40007FEF3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3F498BD02CA4781D0007FEF3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3F498BD22CA478320007FEF3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,10 @@
 		3F498BB82CA473680007FEF3 /* ConnectX */ = {
 			isa = PBXGroup;
 			children = (
-				3F498BB92CA473680007FEF3 /* ConnectXApp.swift */,
-				3F498BBB2CA473680007FEF3 /* ContentView.swift */,
+				3F498BCC2CA476560007FEF3 /* ConnectXApp.swift */,
+				3F498BC92CA474060007FEF3 /* Models */,
+				3F498BC82CA473E70007FEF3 /* ViewModels */,
+				3F498BC72CA473D80007FEF3 /* Views */,
 				3F498BBD2CA4736A0007FEF3 /* Assets.xcassets */,
 				3F498BBF2CA4736A0007FEF3 /* Preview Content */,
 			);
@@ -65,6 +73,31 @@
 				3F498BC02CA4736A0007FEF3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3F498BC72CA473D80007FEF3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F498BCA2CA475FD0007FEF3 /* ProfileView.swift */,
+				3F498BCE2CA476D40007FEF3 /* MainView.swift */,
+				3F498BD02CA4781D0007FEF3 /* LoginView.swift */,
+				3F498BD22CA478320007FEF3 /* RegisterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3F498BC82CA473E70007FEF3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3F498BC92CA474060007FEF3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +132,7 @@
 				TargetAttributes = {
 					3F498BB52CA473680007FEF3 = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -137,8 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F498BBC2CA473680007FEF3 /* ContentView.swift in Sources */,
-				3F498BBA2CA473680007FEF3 /* ConnectXApp.swift in Sources */,
+				3F498BCB2CA475FD0007FEF3 /* ProfileView.swift in Sources */,
+				3F498BD32CA478320007FEF3 /* RegisterView.swift in Sources */,
+				3F498BCF2CA476D40007FEF3 /* MainView.swift in Sources */,
+				3F498BD12CA4781D0007FEF3 /* LoginView.swift in Sources */,
+				3F498BCD2CA476560007FEF3 /* ConnectXApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ConnectX/Preview Content\"";
@@ -288,6 +326,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.ooladejo.ConnectX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -298,6 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ConnectX/Preview Content\"";
