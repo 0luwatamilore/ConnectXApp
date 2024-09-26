@@ -14,9 +14,8 @@ struct LoginView: View {
     
     var body: some View {
         NavigationStack{
-            Text("Hello, World! - LoginView")
+            Text("LoginView")
             VStack {
-                
                 // Login Form
                 Form {
                     TextField(
