@@ -9,38 +9,48 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State public var username: String = ""
-    @State public var password: String = ""
+    @State private var username: String = ""
+    @State private var password: String = ""
     
     var body: some View {
         NavigationStack{
-            Text("LoginView")
-            VStack {
-                // Login Form
-                Form {
-                    TextField(
-                        "Username",
-                        text: $username
-                    )
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField(
-                        "Password",
-                        text: $password
-                    )
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Button{
-                        // Attempt to login
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color.blue)
-                            Text("Log in").foregroundStyle(Color    .white).bold()
-                        }
+            Spacer()
+            // Login Form
+            VStack(spacing: 20) {
+                Text("Login")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .fontWeight(.bold)
+                    .foregroundStyle(Color.black)
+                
+                TextField("Enter your username", text: $username)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                
+                SecureField("Enter your password", text: $password)
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                Button {
+                    // Attempt to login
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10).foregroundColor(Color.black)
+                            .frame(height: 40)
+                            .padding(5)
+                        Text("Log in").foregroundStyle(Color.white)
+                            .bold()
                     }
                 }
+            }
+            
+            Spacer()
                 
                 // Create Account
-                VStack{
+                VStack {
                     Text("New around Here?")
                     NavigationLink("Create An Account", destination: RegisterView()).foregroundStyle(Color.blue)
                 }
@@ -49,7 +59,6 @@ struct LoginView: View {
             }
         }
     }
-}
 
 #Preview {
     LoginView()
