@@ -14,6 +14,9 @@
 		3F498BCF2CA476D40007FEF3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BCE2CA476D40007FEF3 /* MainView.swift */; };
 		3F498BD12CA4781D0007FEF3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BD02CA4781D0007FEF3 /* LoginView.swift */; };
 		3F498BD32CA478320007FEF3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BD22CA478320007FEF3 /* RegisterView.swift */; };
+		3F498BD52CA4FEB70007FEF3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BD42CA4FEB70007FEF3 /* User.swift */; };
+		3F498BD72CA4FEC90007FEF3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BD62CA4FEC90007FEF3 /* Profile.swift */; };
+		3F498BDC2CA8CFCE0007FEF3 /* ContentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BDB2CA8CFCE0007FEF3 /* ContentUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		3F498BCE2CA476D40007FEF3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F498BD02CA4781D0007FEF3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3F498BD22CA478320007FEF3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		3F498BD42CA4FEB70007FEF3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F498BD62CA4FEC90007FEF3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		3F498BDB2CA8CFCE0007FEF3 /* ContentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 		3F498BB82CA473680007FEF3 /* ConnectX */ = {
 			isa = PBXGroup;
 			children = (
+				3F498BDA2CA8CFB30007FEF3 /* Other */,
 				3F498BCC2CA476560007FEF3 /* ConnectXApp.swift */,
 				3F498BC92CA474060007FEF3 /* Models */,
 				3F498BC82CA473E70007FEF3 /* ViewModels */,
@@ -96,8 +103,18 @@
 		3F498BC92CA474060007FEF3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F498BD42CA4FEB70007FEF3 /* User.swift */,
+				3F498BD62CA4FEC90007FEF3 /* Profile.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3F498BDA2CA8CFB30007FEF3 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				3F498BDB2CA8CFCE0007FEF3 /* ContentUI.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +190,9 @@
 			files = (
 				3F498BCB2CA475FD0007FEF3 /* ProfileView.swift in Sources */,
 				3F498BD32CA478320007FEF3 /* RegisterView.swift in Sources */,
+				3F498BD52CA4FEB70007FEF3 /* User.swift in Sources */,
+				3F498BDC2CA8CFCE0007FEF3 /* ContentUI.swift in Sources */,
+				3F498BD72CA4FEC90007FEF3 /* Profile.swift in Sources */,
 				3F498BCF2CA476D40007FEF3 /* MainView.swift in Sources */,
 				3F498BD12CA4781D0007FEF3 /* LoginView.swift in Sources */,
 				3F498BCD2CA476560007FEF3 /* ConnectXApp.swift in Sources */,
