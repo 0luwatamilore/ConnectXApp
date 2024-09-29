@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ContentUI: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.blue, .white]),
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
+            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        }
     }
 }
 
