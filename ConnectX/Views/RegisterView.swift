@@ -17,30 +17,49 @@ struct RegisterView: View {
     var body: some View {
         NavigationStack {
             Text("Register View")
-            VStack {
+            
+            VStack(spacing: 20) {
                 // Register Form
-                Form {
-                    TextField("FirstName", text: $firstName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("LastName", text: $lastName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("Username", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    TextField("Password", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Button {
-                        // Attempt Register
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color.blue)
-                            
-                            Text("Sign Up")
-                                .foregroundStyle(Color.white)
-                        }
+                TextField("FirstName", text: $firstName)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                
+                TextField("LastName", text: $lastName)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                
+                TextField("Username", text: $username)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                
+                SecureField("Password", text: $password)
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                
+                Button {
+                    // Attempt to login
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10).foregroundColor(Color.black)
+                            .frame(height: 40)
+                            .padding(5)
+                        Text("Sign Up").foregroundStyle(Color.white)
+                            .bold()
                     }
                 }
             }
+            .padding(10)
             
         }
         
