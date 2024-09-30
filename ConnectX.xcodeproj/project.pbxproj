@@ -66,7 +66,6 @@
 				3F498BDA2CA8CFB30007FEF3 /* Other */,
 				3F498BCC2CA476560007FEF3 /* ConnectXApp.swift */,
 				3F498BC92CA474060007FEF3 /* Models */,
-				3F498BC82CA473E70007FEF3 /* ViewModels */,
 				3F498BC72CA473D80007FEF3 /* Views */,
 				3F498BBD2CA4736A0007FEF3 /* Assets.xcassets */,
 				3F498BBF2CA4736A0007FEF3 /* Preview Content */,
@@ -91,13 +90,6 @@
 				3F498BD22CA478320007FEF3 /* RegisterView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		3F498BC82CA473E70007FEF3 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		3F498BC92CA474060007FEF3 /* Models */ = {
