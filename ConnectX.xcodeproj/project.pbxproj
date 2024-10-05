@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3AA5F92CB1F99A0049C2DD /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3AA5F82CB1F99A0049C2DD /* PostView.swift */; };
 		3F498BBE2CA4736A0007FEF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F498BBD2CA4736A0007FEF3 /* Assets.xcassets */; };
 		3F498BC12CA4736A0007FEF3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F498BC02CA4736A0007FEF3 /* Preview Assets.xcassets */; };
 		3F498BCB2CA475FD0007FEF3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F498BCA2CA475FD0007FEF3 /* ProfileView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F3AA5F82CB1F99A0049C2DD /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		3F498BB62CA473680007FEF3 /* ConnectX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F498BBD2CA4736A0007FEF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F498BC02CA4736A0007FEF3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				3F498BCE2CA476D40007FEF3 /* MainView.swift */,
 				3F498BD02CA4781D0007FEF3 /* LoginView.swift */,
 				3F498BD22CA478320007FEF3 /* RegisterView.swift */,
+				3F3AA5F82CB1F99A0049C2DD /* PostView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				3F498BD72CA4FEC90007FEF3 /* Profile.swift in Sources */,
 				3F498BCF2CA476D40007FEF3 /* MainView.swift in Sources */,
 				3F498BD12CA4781D0007FEF3 /* LoginView.swift in Sources */,
+				3F3AA5F92CB1F99A0049C2DD /* PostView.swift in Sources */,
 				3F498BCD2CA476560007FEF3 /* ConnectXApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
