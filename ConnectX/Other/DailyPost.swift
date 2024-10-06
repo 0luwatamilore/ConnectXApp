@@ -7,9 +7,21 @@
 
 import Foundation
 
-struct Post {
-    var title: String
-    var attendees: [String]
-    var lengthInMinutes: Int
-    var theme: Theme
+struct DailyPost {
+    var username: String
+    var post: String
 }
+
+extension DailyPost {
+    static let sampleData: [DailyPost] =
+    [
+        DailyPost(username: "Bale", post: "I'm Batman"),
+        DailyPost(username: "Rod", post: "Beautiful mind"),
+        DailyPost(username: "Jack", post: "Yungen"),
+        DailyPost(username: "Wave", post: "Nostalgia"),
+        DailyPost(username: "John", post: "Winterfell"),
+        DailyPost(username: "Rick", post: "Morty"),
+        
+    ]
+}
+

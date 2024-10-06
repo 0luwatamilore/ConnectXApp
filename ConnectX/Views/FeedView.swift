@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct FeedView: View {
+    let posts: [DailyPost] = DailyPost.sampleData
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(posts, id: \.username) { post in
+            PostView(username: post.username, post: post.post)
+        }
     }
 }
 

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PostView: View {
+    var username = ""
+    var post = ""
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
@@ -23,7 +25,7 @@ struct PostView: View {
                 VStack(alignment: .leading, spacing: 5){
                     HStack{
                         // Replace with user's username from backend
-                        Text("username")
+                        Text(username)
                             .font(.footnote)
                             .fontWeight(.bold)
                         Spacer()
@@ -40,7 +42,7 @@ struct PostView: View {
                     }
                     
                     // Replace with post from backend
-                    Text("User's caption or post")
+                    Text(post)
                         .font(.footnote)
                     
                     // Add action to buttons
