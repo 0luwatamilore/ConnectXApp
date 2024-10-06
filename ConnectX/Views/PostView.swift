@@ -64,12 +64,12 @@ struct PostView: View {
                             Image(systemName: "paperplane")
                         }
                     }
-                    .padding(.vertical, 10)
+                    .padding(.top, 10)
                     .foregroundColor(Color(.darkGray))
                 }
             }
         }
-        .padding(10)
+        .padding(5)
         // line to seperate two posts
 //        Divider()
     }
