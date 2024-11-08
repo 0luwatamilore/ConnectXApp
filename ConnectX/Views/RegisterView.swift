@@ -12,6 +12,7 @@ struct RegisterView: View {
     @State public var firstName: String = ""
     @State public var lastName: String = ""
     @State public var username: String = ""
+    @State public var email: String = ""
     @State public var password: String = ""
     
     var body: some View {
@@ -35,6 +36,13 @@ struct RegisterView: View {
                     .padding(.horizontal)
                 
                 TextField("Username", text: $username)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .padding(.horizontal)
+                
+                TextField("Email", text: $email)
                     .autocapitalization(.none)
                     .padding()
                     .background(Color.gray.opacity(0.2))

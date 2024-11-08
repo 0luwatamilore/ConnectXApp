@@ -9,9 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-//        LoginView()
-        FeedView()
-//        Text("Hello, World! - MainView")
+        LoginView()
     }
 }
 
