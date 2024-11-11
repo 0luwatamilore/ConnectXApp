@@ -1,17 +1,16 @@
-//
-//  MainView.swift
-//  ConnectX
-//
-//  Created by Tamilore Oladejo on 9/25/24.
-//
-
 import SwiftUI
+import FirebaseCore
+import FirebaseAuth
 
 struct MainView: View {
+    @StateObject var authViewModel = AuthViewModel()
+
     var body: some View {
-//        LoginView()
-        FeedView()
-//        Text("Hello, World! - MainView")
+        if authViewModel.isLoggedIn {
+            FeedView(authViewModel: authViewModel)
+        } else {
+            LoginView(authViewModel: authViewModel)
+        }
     }
 }
 
