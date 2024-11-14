@@ -3,10 +3,8 @@ import FirebaseFirestore
 import FirebaseAuth
 
 struct CreatePostView: View {
-    @State private var postTitle: String = ""
-    @State private var postContent: String = ""
-    @State private var showError: Bool = false
-    @State private var errorMessage: String = ""
+    
+    @ObservedObject var viewModel = CreatePostViewModel()
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -16,21 +14,17 @@ struct CreatePostView: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
             
-            TextField("Enter title", text: $postTitle)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .padding(.horizontal)
-                .font(.headline)
-            
-            TextEditor(text: $postContent)
+            TextEditor(text: $viewModel.postContent)
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 .frame(height: 200)
                 .padding(.horizontal)
             
-            Button(action: createPost) {
+            Button {
+                viewModel.createPost()
+                
+            } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(Color.blue)
@@ -43,10 +37,10 @@ struct CreatePostView: View {
                 }
             }
             .padding(.top, 20)
-            .alert(isPresented: $showError) {
+            .alert(isPresented: $viewModel.showError) {
                 Alert(
                     title: Text("Error"),
-                    message: Text(errorMessage),
+                    message: Text(viewModel.errorMessage),
                     dismissButton: .default(Text("OK"))
                 )
             }
@@ -54,38 +48,9 @@ struct CreatePostView: View {
             Spacer()
         }
         .padding()
-    }
-    
-    private func createPost() {
-        guard !postContent.isEmpty else {
-            self.errorMessage = "Post content cannot be empty."
-            self.showError = true
-            return
-        }
-        
-        guard let user = Auth.auth().currentUser else {
-            self.errorMessage = "User is not logged in."
-            self.showError = true
-            return
-        }
-        
-        let db = Firestore.firestore()
-        let newPostData: [String: Any] = [
-            "username": user.displayName ?? user.email ?? "Unknown",
-            "userId": user.uid,
-            "postTitle": postTitle,
-            "postContent": postContent,
-            "timestamp": Timestamp(date: Date())
-        ]
-        
-        db.collection("posts").addDocument(data: newPostData) { error in
-            if let error = error {
-                self.errorMessage = "Failed to save post: \(error.localizedDescription)"
-                self.showError = true
-            } else {
-                print("Post successfully saved to Firestore")
-                // The dismiss method to close the view
-                self.dismiss()
+        .onReceive(viewModel.$isPostCreated) { isCreated in
+            if isCreated {
+                dismiss()
             }
         }
     }

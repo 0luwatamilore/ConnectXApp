@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F362E352CE5A53200787EA9 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F362E342CE5A53200787EA9 /* CreatePostViewModel.swift */; };
 		3F3AA5F92CB1F99A0049C2DD /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3AA5F82CB1F99A0049C2DD /* PostView.swift */; };
 		3F3AA5FB2CB207180049C2DD /* DailyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3AA5FA2CB207180049C2DD /* DailyPost.swift */; };
 		3F3AA5FD2CB208530049C2DD /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3AA5FC2CB208530049C2DD /* FeedView.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F362E342CE5A53200787EA9 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		3F3AA5F82CB1F99A0049C2DD /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		3F3AA5FA2CB207180049C2DD /* DailyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPost.swift; sourceTree = "<group>"; };
 		3F3AA5FC2CB208530049C2DD /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				3F498BD42CA4FEB70007FEF3 /* User.swift */,
 				3F498BD62CA4FEC90007FEF3 /* Profile.swift */,
 				3F8DB9952CE0007800A2FAC0 /* AuthViewModel.swift */,
+				3F362E342CE5A53200787EA9 /* CreatePostViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				3F498BCB2CA475FD0007FEF3 /* ProfileView.swift in Sources */,
 				3F498BD32CA478320007FEF3 /* RegisterView.swift in Sources */,
+				3F362E352CE5A53200787EA9 /* CreatePostViewModel.swift in Sources */,
 				3F5DECC02CE1999B00E81C99 /* CreatePostView.swift in Sources */,
 				3F498BD52CA4FEB70007FEF3 /* User.swift in Sources */,
 				3F498BDC2CA8CFCE0007FEF3 /* ContentUI.swift in Sources */,
