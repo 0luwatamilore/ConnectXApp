@@ -6,4 +6,13 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
+
+struct Post {
+    var username: String
+    var userId: String
+    var postContent: String
+    var timestamp: TimeInterval
+}
 
