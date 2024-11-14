@@ -37,9 +37,9 @@ Here's a walkthrough of implemented user stories:
 
 ## Open-source libraries used
 
-Firebase Authentication - For managing user authentication.
-Firebase Firestore - For storing and retrieving user and post data.
-SwiftUI - For creating the UI components in a declarative way.
+* Firebase Authentication - For managing user authentication.
+* Fixrebase Firestore - For storing and retrieving user and post data.
+* SwiftUI - For creating the UI components in a declarative way.
 
 
 
