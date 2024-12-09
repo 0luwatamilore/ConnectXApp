@@ -34,6 +34,7 @@ class CreatePostViewModel: ObservableObject {
             "username": user.displayName ?? user.email ?? "Unknown",
             "userId": user.uid,
             "postContent": postContent,
+            "likes": [],
             "timestamp": Timestamp(date: Date())
         ]
         

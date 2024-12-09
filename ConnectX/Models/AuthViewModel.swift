@@ -63,7 +63,11 @@ class AuthViewModel: ObservableObject {
                 "firstName": firstName,
                 "lastName": lastName,
                 "username": username,
-                "email": email
+                "email": email,
+                "bio": "",
+                "followers": [],
+                "following": [],
+                "profilePicture": "",
             ]) { error in
                 if let error = error {
                     self.errorMessage = "Firestore Error: \(error.localizedDescription)"
