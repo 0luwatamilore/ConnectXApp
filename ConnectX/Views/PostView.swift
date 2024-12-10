@@ -13,12 +13,12 @@ struct PostView: View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
                 // Replace with users profile pic from backend
-                Image("defaultProfileImage")
+                Image("profile_picture")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFit()
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                    .overlay(Circle().stroke(Color.black, lineWidth: 2))
                     .shadow(radius: 5)
                 
                 VStack(alignment: .leading, spacing: 5){

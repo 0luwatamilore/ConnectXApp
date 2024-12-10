@@ -25,11 +25,12 @@ struct FeedView: View {
                         Text("No posts available. Be the first to create one!")
                             .font(.headline)
                             .padding()
-                    } 
+                    }
                     else {
                         List(posts, id: \.id) { post in
-                           PostView(post: post)
+                            PostView(post: post)
                         }
+                        .listStyle(PlainListStyle())
                     }
                     NavigationLink(destination: CreatePostView()) {
                         Text("Create Post")
