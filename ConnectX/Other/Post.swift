@@ -6,13 +6,14 @@
 //
 
 import Foundation
-import FirebaseAuth
-import FirebaseFirestore
 
-struct Post {
-    var username: String
-    var userId: String
-    var postContent: String
-    var timestamp: TimeInterval
+struct Post: Identifiable {
+    let id = UUID() // Unique identifier for SwiftUI List
+    let username: String
+    let userId: String
+    let postContent: String
+    let timestamp: String
+    let likes: [String]
+    let mediaUrl: String
 }
 

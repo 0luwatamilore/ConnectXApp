@@ -6,6 +6,7 @@ struct CreatePostView: View {
     
     @ObservedObject var viewModel = CreatePostViewModel()
     @Environment(\.dismiss) var dismiss
+    var onPostCreated: (() -> Void)?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,8 +23,12 @@ struct CreatePostView: View {
                 .padding(.horizontal)
             
             Button {
-                viewModel.createPost()
-                
+                viewModel.createPost { success in
+                    if success {
+                        onPostCreated?()
+                        dismiss()
+                    }
+                }
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -48,11 +53,6 @@ struct CreatePostView: View {
             Spacer()
         }
         .padding()
-        .onReceive(viewModel.$isPostCreated) { isCreated in
-            if isCreated {
-                dismiss()
-            }
-        }
     }
 }
 

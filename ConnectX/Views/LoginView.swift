@@ -34,21 +34,21 @@ struct LoginView: View {
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 24)
                     
                     SecureField("Enter your password", text: $password)
                         .padding()
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 24)
                     Button {
                         // Attempt to login
                         authViewModel.loginUser(username: username, password: password)
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10).foregroundColor(Color.black)
-                                .frame(height: 40)
-                                .padding(5)
+                                .frame(height: 44)
+                                .padding(.horizontal, 24)
                             Text("Log in").foregroundStyle(Color.white)
                                 .bold()
                         }

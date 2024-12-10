@@ -15,17 +15,20 @@ class CreatePostViewModel: ObservableObject {
     @Published var showError: Bool = false
     @Published var errorMessage: String = ""
     @Published var isPostCreated: Bool = false
+    @Published var mediaUrl: String = ""
     
-    func createPost() {
+    func createPost(completion: @escaping (Bool) -> Void) {
         guard !postContent.isEmpty else {
             self.errorMessage = "Post content cannot be empty."
             self.showError = true
+            completion(false)
             return
         }
         
         guard let user = Auth.auth().currentUser else {
             self.errorMessage = "User is not logged in."
             self.showError = true
+            completion(false)
             return
         }
         
@@ -35,17 +38,19 @@ class CreatePostViewModel: ObservableObject {
             "userId": user.uid,
             "postContent": postContent,
             "likes": [],
-            "timestamp": Timestamp(date: Date())
+            "timestamp": Timestamp(date: Date()),
+            "mediaUrl": mediaUrl,
         ]
-        
         db.collection("posts").addDocument(data: newPostData) { error in
             if let error = error {
                 self.errorMessage = "Failed to save post: \(error.localizedDescription)"
                 self.showError = true
+                completion(false)
             } else {
                 self.errorMessage = ""
                 self.showError = false
                 self.isPostCreated = true
+                completion(true)
             }
         }
     }
