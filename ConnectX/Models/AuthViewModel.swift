@@ -28,13 +28,14 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func signUpUser(firstName: String, lastName: String, username: String, email: String, password: String) {
+    func signUpUser(firstName: String, lastName: String, username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
         // Check if all fields are filled
         guard !firstName.isEmpty, !lastName.isEmpty, !username.isEmpty, !email.isEmpty, !password.isEmpty else {
             self.errorMessage = "Please fill in all fields."
             self.showError = true
             self.isLoggedIn = false
             print("Fields are empty.")
+            completion(false)
             return
         }
         
@@ -47,12 +48,14 @@ class AuthViewModel: ObservableObject {
                 self.showError = true
                 self.isLoggedIn = false
                 print("Error during Firebase Auth: \(error.localizedDescription)")
+                completion(false)
                 return
             }
             
             // Check if user ID was created
             guard let userID = authResult?.user.uid else {
                 print("Failed to get user ID after Firebase Auth")
+                completion(false)
                 return
             }
             
@@ -74,12 +77,14 @@ class AuthViewModel: ObservableObject {
                     self.showError = true
                     self.isLoggedIn = false
                     print("Error writing to Firestore: \(error.localizedDescription)")
+                    completion(false)
                 } else {
                     // Successfully signedup user
                     print("User data stored successfully in Firestore.")
                     self.errorMessage = ""
                     self.showError = false
                     self.isLoggedIn = true
+                    completion(true)
                 }
             }
         }
