@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct PostView: View {
-    var username = ""
-    var post = ""
+    let post: Post
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
@@ -25,16 +24,16 @@ struct PostView: View {
                 VStack(alignment: .leading, spacing: 5){
                     HStack{
                         // Replace with user's username from backend
-                        Text(username)
+                        Text(post.username)
                             .font(.footnote)
                             .fontWeight(.bold)
                         Spacer()
                         // Replace with post timestamp from backend (3m, 2h)
-                        Text("post timestamp")
+                        Text(post.timestamp)
                             .font(.caption)
                             .foregroundColor(.gray)
-                        // Add action to ellipsis
                         Button {
+                            // Add action to ellipsis
                         } label: {
                             Image(systemName: "ellipsis")
                                 .foregroundColor(Color(.darkGray))
@@ -42,7 +41,7 @@ struct PostView: View {
                     }
                     
                     // Replace with post from backend
-                    Text(post)
+                    Text(post.postContent)
                         .font(.footnote)
                     
                     // Add action to buttons
@@ -77,6 +76,15 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView()
+        PostView(
+            post: Post(
+                username: "testUser",
+                userId: "user123",
+                postContent: "This is a sample post content.",
+                timestamp: "5m",
+                likes: ["user1", "user2"],
+                mediaUrl: ""
+            )
+        )
     }
 }

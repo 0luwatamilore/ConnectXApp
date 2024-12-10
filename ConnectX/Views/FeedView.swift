@@ -7,10 +7,13 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 struct FeedView: View {
+    
     @ObservedObject var authViewModel: AuthViewModel
-    let posts: [DailyPost] = DailyPost.sampleData
+    @StateObject var postViewModel = PostViewModel()
+    @State var posts: [Post] = []
     
     var body: some View {
         NavigationStack {
@@ -18,8 +21,15 @@ struct FeedView: View {
                 MainView()
             } else {
                 VStack {
-                    List(posts, id: \.username) { post in
-                        PostView(username: post.username, post: post.post)
+                    if posts.isEmpty {
+                        Text("No posts available. Be the first to create one!")
+                            .font(.headline)
+                            .padding()
+                    } 
+                    else {
+                        List(posts, id: \.id) { post in
+                           PostView(post: post)
+                        }
                     }
                     NavigationLink(destination: CreatePostView()) {
                         Text("Create Post")
@@ -46,6 +56,11 @@ struct FeedView: View {
                         }
                     }
                 }
+            }
+        }
+        .onAppear {
+            postViewModel.fetchPosts() { post in
+                posts.append(contentsOf: post)
             }
         }
     }

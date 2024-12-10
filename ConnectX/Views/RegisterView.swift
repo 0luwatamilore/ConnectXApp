@@ -68,8 +68,8 @@ struct RegisterView: View {
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10).foregroundColor(Color.black)
-                                .frame(height: 40)
-                                .padding(5)
+                                .frame(height: 42)
+                                .padding()
                             Text("Sign Up").foregroundStyle(Color.white)
                                 .bold()
                         }
