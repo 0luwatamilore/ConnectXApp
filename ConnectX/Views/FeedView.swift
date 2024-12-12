@@ -21,43 +21,21 @@ struct FeedView: View {
                 MainView()
             } else {
                 VStack {
-                    if posts.isEmpty {
-                        Text("No posts available. Be the first to create one!")
-                            .font(.headline)
-                            .padding()
-                    }
-                    else {
+                    if !posts.isEmpty {
                         List(posts, id: \.id) { post in
                             PostView(post: post)
                         }
                         .listStyle(PlainListStyle())
-                    }
-                    NavigationLink(destination: CreatePostView()) {
-                        Text("Create Post")
-                            .foregroundStyle(.white)
-                            .bold()
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 50)
-                            .background(.black)
-                            .cornerRadius(10)
-                            .padding(.horizontal)
-                    }
-                    .padding(.top, 10)
-                    
-                    Button {
-                        // Attempting to log out
-                        print("User is logged in: \(Auth.auth().currentUser!)")
-                        authViewModel.logout()
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10).foregroundColor(Color.black)
-                                .frame(height: 40)
-                                .padding(5)
-                            Text("Sign Out").foregroundStyle(Color.white)
-                                .bold()
-                        }
+                    } else{
+                        Text("No posts available. Be the first to create one!")
+                            .font(.headline)
+                            .padding()
                     }
                 }
             }
+        }
+        .refreshable {
+            print("DEBUG: refreshable")
         }
         .onAppear {
             postViewModel.fetchPosts() { post in

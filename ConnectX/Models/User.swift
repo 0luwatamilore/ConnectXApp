@@ -10,7 +10,7 @@ import Foundation
 struct User: Identifiable {
     let id: String
     let username: String
-    let bio: String
+    var bio: String
     let followers: [String]
     let fullname: String
 }
