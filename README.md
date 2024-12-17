@@ -9,9 +9,8 @@
 
 The following required functionality is completed:
 
-* [ ] User can sign up and log in to ConnectXApp.
-* [ ] User can view posts from different communities.
-* [ ] User can see the username and content for each post.
+* [x] User can sign up and log in to ConnectXApp.
+* [ ] User can view posts from users.
 * [ ] User can log out by tapping a logout button.
 * [ ] User can create a new post.
 * [ ] User is taken back to the feed view with the new post visible in the timeline.
@@ -20,6 +19,7 @@ The following required functionality is completed:
 The following **optional** features are implemented:
 
 * [ ] User can see the relative timestamp for each post (e.g., "5m", "1h").
+* [ ] User can view posts from different communities.
 * [ ] User can view their profile with additional information.
 * [ ] User can like or comment on a post.
 * [ ] User can reply to other users’ comments.
@@ -29,6 +29,7 @@ The following **optional** features are implemented:
 * [ ] Implement "Pull to Refresh" to reload posts in the timeline.
 * [ ] User sees a character counter when typing content for a new post.
 * [ ] User can use custom themes and colors in the app.
+* [ ] User can see the username and content for each post.
 
 ## Video Walkthrough
 
