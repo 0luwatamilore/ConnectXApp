@@ -3,7 +3,6 @@ import FirebaseFirestore
 import FirebaseAuth
 
 struct CreatePostView: View {
-    
     @ObservedObject var viewModel = CreatePostViewModel()
     @Environment(\.dismiss) var dismiss
     var onPostCreated: (() -> Void)?
@@ -32,7 +31,7 @@ struct CreatePostView: View {
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(viewModel.postContent.isEmpty ? Color.gray : Color.blue)
                         .frame(height: 50)
                         .padding(.horizontal)
                     
@@ -41,18 +40,17 @@ struct CreatePostView: View {
                         .fontWeight(.bold)
                 }
             }
-            .padding(.top, 20)
-            .alert(isPresented: $viewModel.showError) {
-                Alert(
-                    title: Text("Error"),
-                    message: Text(viewModel.errorMessage),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
-            
+            .disabled(viewModel.postContent.isEmpty) // Disable when content is empty
             Spacer()
         }
         .padding()
+        .alert(isPresented: $viewModel.showError) {
+            Alert(
+                title: Text("Error"),
+                message: Text(viewModel.errorMessage),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 

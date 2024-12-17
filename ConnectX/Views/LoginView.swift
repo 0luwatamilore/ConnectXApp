@@ -18,7 +18,7 @@ struct LoginView: View {
     var body: some View {
         NavigationStack{
             if authViewModel.isLoggedIn {
-                FeedView(authViewModel: authViewModel)
+                ConnectXTabView(authViewModel: authViewModel)
             } else {
                 
                 // Login Form

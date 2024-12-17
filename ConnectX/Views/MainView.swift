@@ -7,7 +7,7 @@ struct MainView: View {
 
     var body: some View {
         if authViewModel.isLoggedIn {
-            FeedView(authViewModel: authViewModel)
+            ConnectXTabView(authViewModel: authViewModel)
         } else {
             LoginView(authViewModel: authViewModel)
         }
