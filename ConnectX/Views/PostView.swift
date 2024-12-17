@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct PostView: View {
+    @ObservedObject var postViewModel: PostViewModel
     let post: Post
+    let currentUserId: String
+    
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
@@ -47,18 +50,27 @@ struct PostView: View {
                     // Add action to buttons
                     HStack(spacing: 10) {
                         Button {
+                            postViewModel.toggleLike(post: post, userId: currentUserId)
                         } label: {
-                            Image(systemName: "heart")
+                            HStack {
+                                Image(systemName: post.likes.contains(currentUserId) ? "heart.fill" : "heart")
+                                    .foregroundColor(post.likes.contains(currentUserId) ? .red : .gray)
+                                Text("\(post.likes.count)")
+                                    .font(.caption)
+                            }
                         }
                         Button {
+                            // Action for comments
                         } label: {
                             Image(systemName: "bubble.right")
                         }
                         Button {
+                            // Action for resharing
                         } label: {
                             Image(systemName: "arrow.rectanglepath")
                         }
                         Button {
+                            // Action for sharing
                         } label: {
                             Image(systemName: "paperplane")
                         }
@@ -77,14 +89,17 @@ struct PostView: View {
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
         PostView(
+            postViewModel: PostViewModel(),
             post: Post(
+                id: "testPostId",
                 username: "testUser",
                 userId: "user123",
                 postContent: "This is a sample post content.",
                 timestamp: "5m",
                 likes: ["user1", "user2"],
                 mediaUrl: ""
-            )
+            ),
+            currentUserId: "currentUser123"
         )
     }
 }

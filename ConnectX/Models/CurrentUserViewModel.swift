@@ -30,6 +30,7 @@ class CurrentUserViewModel: ObservableObject {
         
         db.collection("users").whereField("email", isEqualTo: currentEmail).getDocuments { snapshot, error in
             if let error = error {
+                // TODO: make print statemnt clearer
                 print("Cannot find user: \(error.localizedDescription)")
                 return
             }
@@ -46,10 +47,10 @@ class CurrentUserViewModel: ObservableObject {
             let followers = data["followers"] as? [String] ?? []
             let firstname = data["firstName"] as? String ?? "Firstname"
             let lastname = data["lastName"] as? String ?? "Lastname"
-            let fullname = "\(firstname) \(lastname)"
+            let email = data["email"] as? String ?? "email"
             
             DispatchQueue.main.async {
-                self.currentUser = User(id: userId, username: username, bio: bio, followers: followers, fullname: fullname)
+                self.currentUser = User(id: userId, email: email, username: username, bio: bio, followers: followers, firstname: firstname, lastname: lastname, profilePicture: "")
             }
         }
     }

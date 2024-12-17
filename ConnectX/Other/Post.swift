@@ -8,7 +8,7 @@
 import Foundation
 
 struct Post: Identifiable {
-    let id = UUID() // Unique identifier for SwiftUI List
+    let id: String // This for DocumentID
     let username: String
     let userId: String
     let postContent: String

@@ -11,8 +11,10 @@ import FirebaseFirestore
 
 class AuthViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = Auth.auth().currentUser != nil
+    @Published var currentUserId: String? = Auth.auth().currentUser?.uid
     @Published var errorMessage: String = ""
     @Published var showError: Bool = false
+    
     
     private let db = Firestore.firestore()
     
@@ -20,6 +22,7 @@ class AuthViewModel: ObservableObject {
         do {
             try Auth.auth().signOut()
             self.isLoggedIn = false
+            self.currentUserId = nil
             self.showError = false
             self.errorMessage = ""
         } catch let error {
@@ -71,6 +74,7 @@ class AuthViewModel: ObservableObject {
                 "followers": [],
                 "following": [],
                 "profilePicture": "",
+                "id": userID
             ]) { error in
                 if let error = error {
                     self.errorMessage = "Firestore Error: \(error.localizedDescription)"
@@ -116,6 +120,7 @@ class AuthViewModel: ObservableObject {
                         self.showError = false
                         self.errorMessage = ""
                         self.isLoggedIn = true
+                        self.currentUserId = authResult?.user.uid
                     }
                 }
             } else {

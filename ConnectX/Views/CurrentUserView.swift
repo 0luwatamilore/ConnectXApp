@@ -12,7 +12,7 @@ struct CurrentUserView: View {
     @StateObject var viewModel = CurrentUserViewModel()
     @StateObject var authViewModel: AuthViewModel
     @State private var showEditProfile = false
-    @State private var isPrivateProfile: Bool = false
+    @State private var isPrivateProfile: Bool = false // future feature
 
     var body: some View {
         NavigationStack {
@@ -25,9 +25,9 @@ struct CurrentUserView: View {
                             Text(user.username)
                                 .font(.title)
                                 .fontWeight(.semibold)
-                            Text(user.fullname)
+                            Text(user.firstname)
                                 .font(.subheadline)
-                            Text(user.bio)
+                            Text(user.bio ?? "")
                                 .foregroundColor(.gray)
                                 .font(.subheadline)
                             Text("\(user.followers.count) followers")

@@ -10,10 +10,9 @@ import FirebaseAuth
 import FirebaseFirestore
 
 struct FeedView: View {
-    
     @ObservedObject var authViewModel: AuthViewModel
     @StateObject var postViewModel = PostViewModel()
-    @State var posts: [Post] = []
+    @State private var isCreatingPost = false
     
     var body: some View {
         NavigationStack {
@@ -21,25 +20,31 @@ struct FeedView: View {
                 MainView()
             } else {
                 VStack {
-                    if !posts.isEmpty {
-                        List(posts, id: \.id) { post in
-                            PostView(post: post)
+                    if !postViewModel.posts.isEmpty {
+                        List(postViewModel.posts, id: \.id) { post in
+                            PostView(postViewModel: postViewModel, post: post, currentUserId: authViewModel.currentUserId ?? "")
                         }
                         .listStyle(PlainListStyle())
-                    } else{
+                    } else {
                         Text("No posts available. Be the first to create one!")
                             .font(.headline)
                             .padding()
                     }
                 }
-            }
-        }
-        .refreshable {
-            print("DEBUG: refreshable")
-        }
-        .onAppear {
-            postViewModel.fetchPosts() { post in
-                posts.append(contentsOf: post)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            isCreatingPost = true
+                        }) {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
+                .sheet(isPresented: $isCreatingPost) {
+                    CreatePostView {
+                        print("Feed updated after post creation")
+                    }
+                }
             }
         }
     }

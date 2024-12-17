@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct EditProfileView: View {
+    @State private var bio: String
+    @Binding var user: User
     @Environment(\.presentationMode) var presentationMode
-    @Binding var user: User // Pass the user object to edit
+    
+    init(user: Binding<User>) {
+        _user = user
+        _bio = State(initialValue: user.wrappedValue.bio ?? "") // Initialize bio with current value
+    }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 // Username Section
                 HStack {
@@ -24,10 +32,28 @@ struct EditProfileView: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                 }
-
+                
+                // Fullname Section
+                HStack {
+                    Text("Firstname")
+                    Spacer()
+                    Text(user.firstname)
+                        .foregroundColor(.gray)
+                }
+                
+                // lastname Section
+                HStack {
+                    Text("Lasttname")
+                    Spacer()
+                    Text(user.lastname)
+                        .foregroundColor(.gray)
+                }
+                
                 // Bio Section
-                Section(header: Text("Bio")) {
-                    TextField("Enter your bio...", text: $user.bio)
+                HStack {
+                    Text("Bio")
+                    Spacer()
+                    TextField("Add Bio...", text: $bio).frame(maxWidth: 150)
                 }
             }
             .navigationTitle("Edit Profile")
@@ -41,6 +67,8 @@ struct EditProfileView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         // Handle save action here
+                        user.bio = bio
+                        editProfile(currentUser: user, newbio: bio)
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
@@ -49,8 +77,42 @@ struct EditProfileView: View {
     }
 }
 
-#Preview {
-    // Mock data for preview
-    let mockUser = Binding.constant(User(id: "UserId", username: "User Fullname", bio: "Mock Bio", followers: [], fullname: "Mock Fullname"))
-    return EditProfileView(user: mockUser)
+func editProfile(currentUser: User, newbio: String) {
+    guard !newbio.isEmpty else {
+        print("Empty field")
+        return
+    }
+    let db = Firestore.firestore()
+    db.collection("users").whereField("email", isEqualTo: currentUser.email).getDocuments { snapshot, error in
+        if let error = error {
+            print("Error in connecting to Backend: \(error.localizedDescription)")
+            return
+        }
+        
+        guard let document = snapshot?.documents.first else {
+            print("No user found in Firestore")
+            return
+        }
+        
+        // Data to update
+        let updatedData: [String: Any] = [
+            "bio": newbio,
+        ]
+        
+        // Perform the update
+        let documentRef = document.reference
+        documentRef.updateData(updatedData) { error in
+            if let error = error {
+                print("Error updating profile: \(error.localizedDescription)")
+            } else{
+                print("Profile successfully updated!")
+            }
+        }
+    }
 }
+
+#Preview {
+    let mockUser = User(id: "Mock User Id", email: "Mock Email", username: "MockUsername", bio: "Mock Bio", followers: [], firstname: "Mock firstname", lastname: "Mock lastname", profilePicture: "")
+    return EditProfileView(user: .constant(mockUser))
+}
+

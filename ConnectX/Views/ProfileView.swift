@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var userName:String = "Username"
-    @State private var fullName:String = "Keli"
-    @State private var followers:Int = 10
-    @State private var isFollowing:Bool = false
+    let user: User
+    @State private var isFollowing: Bool = false // TODO: for follow/unfollow logic
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             // User Info
-            HStack{
-                VStack(alignment: .leading, spacing: 05) {
-                    Text(userName)
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            HStack {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(user.username)
+                        .font(.title)
                         .fontWeight(.bold)
-                    Text(fullName)
+                    Text("\(user.firstname) \(user.lastname)")
                         .foregroundColor(.gray)
-                    Text(String(followers) + " followers")
+                    Text("\(user.followers.count) followers")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
@@ -39,30 +38,32 @@ struct ProfileView: View {
             
             // Follow Button
             Button {
-                // Attempt to Follow
+                // Logic for following/unfollowing
+                isFollowing.toggle()
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(.black)
                         .frame(height: 40)
-                        
+                    
                     Text(isFollowing ? "Unfollow" : "Follow")
-                        .foregroundStyle(.white)
+                        .foregroundColor(.white)
                         .fontWeight(.bold)
                 }
                 .padding(.horizontal, 10)
             }
-
-            
         }
         .padding(5)
         
+        // Additional Profile Details (if needed)
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {}
+            VStack(alignment: .leading, spacing: 20) {
+                // Add posts or other content here
             }
         }
     }
+}
 
 #Preview {
-    ProfileView()
+    ProfileView(user: User(id: "testuser123", email: "testUser email", username: "testUser username", bio: "testUser bio", followers: [], firstname: "testUser firstname", lastname: "testUser lastname", profilePicture: ""))
 }
