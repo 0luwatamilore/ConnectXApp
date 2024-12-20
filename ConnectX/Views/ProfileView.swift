@@ -65,5 +65,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(user: User(id: "testuser123", email: "testUser email", username: "testUser username", bio: "testUser bio", followers: [], firstname: "testUser firstname", lastname: "testUser lastname", profilePicture: ""))
+    ProfileView(user: User(id: "testuser123", email: "testUser email", username: "testUser username", bio: "testUser bio", followers: [], firstname: "testUser firstname", lastname: "testUser lastname", profilePicture: "", posts: []))
 }

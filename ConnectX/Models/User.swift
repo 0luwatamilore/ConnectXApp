@@ -16,4 +16,5 @@ struct User: Identifiable {
     let firstname: String
     let lastname: String
     let profilePicture: String?
+    let posts: [String]
 }

@@ -12,7 +12,7 @@ struct CurrentUserView: View {
     @StateObject var viewModel = CurrentUserViewModel()
     @StateObject var authViewModel: AuthViewModel
     @State private var showEditProfile = false
-    @State private var isPrivateProfile: Bool = false // future feature
+    @State private var isPrivateProfile: Bool = false // TODO: future feature
 
     var body: some View {
         NavigationStack {
@@ -68,6 +68,9 @@ struct CurrentUserView: View {
                             Text("Error loading user data")
                         }
                     }
+                    Text("Posts")
+                        .font(.headline).padding(.leading, 20)
+                    
                 } else {
                     // Loading state or placeholder while user details are fetched
                     Text("Loading user details...")
@@ -79,6 +82,7 @@ struct CurrentUserView: View {
             .frame(maxHeight: .infinity, alignment: .top)
             .onAppear {
                 viewModel.fetchUserDetails()
+//                viewModel.fetchUserPosts(postIds: <#T##[String]#>)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -87,10 +91,13 @@ struct CurrentUserView: View {
                     } label: {
                         Text("Logout")
                             .foregroundColor(.red)
-                        .bold()
+                            .bold()
                     }
                 }
             }
+//            Divider()
+            Text("Second Section")
+        
         }
     }
 }

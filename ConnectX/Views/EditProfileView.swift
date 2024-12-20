@@ -26,6 +26,7 @@ struct EditProfileView: View {
                 HStack {
                     Text("Username")
                     Spacer()
+//                    TextField("Change Username...", text: <#T##Binding<String>#>)
                     Text(user.username)
                         .foregroundColor(.gray)
                     Image(systemName: "person.circle")
@@ -78,10 +79,11 @@ struct EditProfileView: View {
 }
 
 func editProfile(currentUser: User, newbio: String) {
-    guard !newbio.isEmpty else {
-        print("Empty field")
-        return
-    }
+//    // user wont be able to make bio empty
+//    guard !newbio.isEmpty else {
+//        print("Empty field")
+//        return
+//    }
     let db = Firestore.firestore()
     db.collection("users").whereField("email", isEqualTo: currentUser.email).getDocuments { snapshot, error in
         if let error = error {
@@ -112,7 +114,7 @@ func editProfile(currentUser: User, newbio: String) {
 }
 
 #Preview {
-    let mockUser = User(id: "Mock User Id", email: "Mock Email", username: "MockUsername", bio: "Mock Bio", followers: [], firstname: "Mock firstname", lastname: "Mock lastname", profilePicture: "")
+    let mockUser = User(id: "Mock User Id", email: "Mock Email", username: "MockUsername", bio: "Mock Bio", followers: [], firstname: "Mock firstname", lastname: "Mock lastname", profilePicture: "", posts: [])
     return EditProfileView(user: .constant(mockUser))
 }
 

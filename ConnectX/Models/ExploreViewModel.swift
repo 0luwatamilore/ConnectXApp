@@ -28,7 +28,7 @@ class ExploreViewModel: ObservableObject {
                     return
                 }
                 
-                self.users = snapshot?.documents.compactMap { document in
+                self.users = snapshot?.documents.compactMap { document -> User? in
                     let data = document.data()
                     
                     // Safely unwrap required fields
@@ -55,7 +55,8 @@ class ExploreViewModel: ObservableObject {
                         followers: followers,
                         firstname: firstname,
                         lastname: lastname,
-                        profilePicture: profilePicture
+                        profilePicture: profilePicture,
+                        posts: []
                     )
                 } ?? []
             }
